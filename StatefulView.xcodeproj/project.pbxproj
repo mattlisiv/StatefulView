@@ -10,6 +10,7 @@
 		F6B8EFB81FABA7DF000B73BA /* StatefulView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8EFAE1FABA7DF000B73BA /* StatefulView.framework */; };
 		F6B8EFBD1FABA7DF000B73BA /* StatefulViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8EFBC1FABA7DF000B73BA /* StatefulViewTests.swift */; };
 		F6B8EFBF1FABA7DF000B73BA /* StatefulView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B8EFB11FABA7DF000B73BA /* StatefulView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F6B8EFC91FABB1B8000B73BA /* StatefulView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8EFC81FABB1B8000B73BA /* StatefulView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +30,7 @@
 		F6B8EFB71FABA7DF000B73BA /* StatefulViewTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = StatefulViewTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B8EFBC1FABA7DF000B73BA /* StatefulViewTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulViewTests.swift; sourceTree = "<group>"; };
 		F6B8EFBE1FABA7DF000B73BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F6B8EFC81FABB1B8000B73BA /* StatefulView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatefulView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			children = (
 				F6B8EFB11FABA7DF000B73BA /* StatefulView.h */,
 				F6B8EFB21FABA7DF000B73BA /* Info.plist */,
+				F6B8EFC81FABB1B8000B73BA /* StatefulView.swift */,
 			);
 			path = StatefulView;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 				TargetAttributes = {
 					F6B8EFAD1FABA7DF000B73BA = {
 						CreatedOnToolsVersion = 9.0;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					F6B8EFB61FABA7DF000B73BA = {
@@ -196,6 +200,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B8EFC91FABB1B8000B73BA /* StatefulView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -334,6 +339,7 @@
 		F6B8EFC31FABA7DF000B73BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -347,6 +353,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.redi.StatefulView;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -355,6 +362,7 @@
 		F6B8EFC41FABA7DF000B73BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -376,6 +384,7 @@
 		F6B8EFC61FABA7DF000B73BA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HV4X7AT7HZ;
 				INFOPLIST_FILE = StatefulViewTests/Info.plist;
@@ -390,6 +399,7 @@
 		F6B8EFC71FABA7DF000B73BA /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = HV4X7AT7HZ;
 				INFOPLIST_FILE = StatefulViewTests/Info.plist;
