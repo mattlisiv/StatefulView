@@ -101,7 +101,7 @@ public class StatefulView: UIView {
                 stateView = view
             }
         }
-        if let block = completionBlocks[self.state]{
+        if completionBlocks[self.state] != nil{
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
             stateView!.addGestureRecognizer(tapGesture)
         }
