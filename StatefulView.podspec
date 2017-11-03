@@ -36,5 +36,5 @@ Pod::Spec.new do |s|
   s.source_files = "StatefulView/**/*.{swift}"
 
   # 9
-  #s.resources = "StatefulView/**/*.{png,jpeg,jpg,storyboard,xib}"
+  s.resources = "StatefulView/**/*.{png,jpeg,jpg,storyboard,xib}"
 end

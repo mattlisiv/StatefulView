@@ -18,7 +18,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         self.segmentSelector.addTarget(self, action: #selector(segmentedControlComparisonChanged), for: .allEvents)
         self.statefulView.setAvailableViews(loadingView: "LoadingView", errorView: "ErrorView", emptyView: "EmptyView", customView: "MyCustomView")
-        self.statefulView.setState(state: .loading)
+        self.statefulView.setState(state: .empty)
     }
     
 //    override func viewDidLayoutSubviews() {

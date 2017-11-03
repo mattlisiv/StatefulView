@@ -22,6 +22,7 @@ public class StatefulView: UIView {
     // Default Views
     private var state: ViewState = ViewState.loading
     private var views:[ViewState:String] = [:]
+    private var currentView: UIView?
     
     // Set Views
     public func setAvailableViews(loadingView: String? = nil, errorView: String? = nil, emptyView: String? = nil, customView: String? = nil){
@@ -60,21 +61,47 @@ public class StatefulView: UIView {
         self.setSelectedView()
     }
     // Load View from NIB
-    private func instanceFromNib(name: String) -> UIView? {
-        if let view = UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView{
-            return view
+    private func instanceFromNib(name: String,useDefault: Bool = false) -> UIView? {
+        if !useDefault{
+            if let view = UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView{
+                return view
+            }
+        }else{
+            if let view = UINib(nibName: name, bundle: Bundle(identifier: "StatefulView")).instantiate(withOwner: nil, options: nil)[0] as? UIView{
+                return view
+            }
         }
         return nil
     }
     // Select View And Redraw
     private func setSelectedView(){
+        self.removeCurrentView()
         if let stateView = views[self.state]{
-            self.removeCurrentView()
             if let view = self.instanceFromNib(name: stateView){
+                view.frame = self.bounds
                 self.addSubview(view)
-                self.setNeedsLayout()
-                self.setNeedsDisplay()
+            }
+        }else{
+            var local: String = ""
+            switch self.state{
+            case .empty:
+                local = "EmptyView"
+                break
+            case .loading:
+                local = "LoadingView"
+                break
+            case .error:
+                local = "ErrorView"
+                break
+            default:
+                print("Cannot process local custom")
+            }
+            if let view = self.instanceFromNib(name: local, useDefault: true){
+                view.frame = self.bounds
+                self.addSubview(view)
             }
         }
+        self.setNeedsLayout()
+        self.setNeedsDisplay()
     }
 }

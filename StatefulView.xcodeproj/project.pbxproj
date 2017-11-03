@@ -22,6 +22,9 @@
 		F6B8F0051FABCA20000B73BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0041FABCA20000B73BA /* LoadingView.xib */; };
 		F6B8F0071FABDD05000B73BA /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0061FABDD05000B73BA /* ErrorView.xib */; };
 		F6B8F0091FABDD15000B73BA /* MyCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0081FABDD15000B73BA /* MyCustomView.xib */; };
+		F6B8F00F1FABF985000B73BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F00E1FABF984000B73BA /* LoadingView.xib */; };
+		F6B8F0111FABFC44000B73BA /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0101FABFC44000B73BA /* EmptyView.xib */; };
+		F6B8F0131FABFC4E000B73BA /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0121FABFC4E000B73BA /* ErrorView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -80,6 +83,9 @@
 		F6B8F0041FABCA20000B73BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		F6B8F0061FABDD05000B73BA /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		F6B8F0081FABDD15000B73BA /* MyCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomView.xib; sourceTree = "<group>"; };
+		F6B8F00E1FABF984000B73BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
+		F6B8F0101FABFC44000B73BA /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
+		F6B8F0121FABFC4E000B73BA /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -152,6 +158,9 @@
 				F6B8EFB11FABA7DF000B73BA /* StatefulView.h */,
 				F6B8EFB21FABA7DF000B73BA /* Info.plist */,
 				F6B8EFC81FABB1B8000B73BA /* StatefulView.swift */,
+				F6B8F00E1FABF984000B73BA /* LoadingView.xib */,
+				F6B8F0101FABFC44000B73BA /* EmptyView.xib */,
+				F6B8F0121FABFC4E000B73BA /* ErrorView.xib */,
 			);
 			path = StatefulView;
 			sourceTree = "<group>";
@@ -366,6 +375,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6B8F0131FABFC4E000B73BA /* ErrorView.xib in Resources */,
+				F6B8F0111FABFC44000B73BA /* EmptyView.xib in Resources */,
+				F6B8F00F1FABF985000B73BA /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
