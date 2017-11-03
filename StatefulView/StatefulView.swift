@@ -18,14 +18,17 @@ public enum ViewState: String {
 }
 
 public class StatefulView: UIView {
-
+    
     // Default Views
     private var state: ViewState = ViewState.loading
-    private var views:[ViewState:String] = [:]
-    private var currentView: UIView?
+    private var viewDictionary:[ViewState:String] = [:]
+    private var views:[ViewState:UIView] = [:]
+    private var completionBlocks:[ViewState:CompletionHandler] = [:]
+    public typealias CompletionHandler = () -> Void
+    public typealias ClickHandler = (UITapGestureRecognizer) -> Void
     
-    // Set Views
-    public func setAvailableViews(loadingView: String? = nil, errorView: String? = nil, emptyView: String? = nil, customView: String? = nil){
+    // Set Views By Direct Reference
+    public func setAvailableViews(loadingView: UIView? = nil, errorView: UIView? = nil, emptyView: UIView? = nil, customView: UIView? = nil){
         // Loading
         if let loading = loadingView{
             views[ViewState.loading] = loading
@@ -41,6 +44,26 @@ public class StatefulView: UIView {
         // Custom
         if let custom = customView{
             views[ViewState.custom] = custom
+        }
+    }
+    
+    // Set Views By Dictionary
+    public func setAvailableViewsByName(loadingView: String? = nil, errorView: String? = nil, emptyView: String? = nil, customView: String? = nil){
+        // Loading
+        if let loading = loadingView{
+            viewDictionary[ViewState.loading] = loading
+        }
+        // Error
+        if let error = errorView{
+            viewDictionary[ViewState.error] = error
+        }
+        // Empty
+        if let empty = emptyView{
+            viewDictionary[ViewState.empty] = empty
+        }
+        // Custom
+        if let custom = customView{
+            viewDictionary[ViewState.custom] = custom
         }
     }
     // Set Current State
@@ -62,46 +85,54 @@ public class StatefulView: UIView {
     }
     // Load View from NIB
     private func instanceFromNib(name: String,useDefault: Bool = false) -> UIView? {
-        if !useDefault{
-            if let view = UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView{
-                return view
-            }
-        }else{
-            if let view = UINib(nibName: name, bundle: Bundle(identifier: "StatefulView")).instantiate(withOwner: nil, options: nil)[0] as? UIView{
-                return view
-            }
+        if let view = UINib(nibName: name, bundle: nil).instantiate(withOwner: nil, options: nil)[0] as? UIView{
+            return view
         }
         return nil
     }
     // Select View And Redraw
     private func setSelectedView(){
         self.removeCurrentView()
-        if let stateView = views[self.state]{
-            if let view = self.instanceFromNib(name: stateView){
-                view.frame = self.bounds
-                self.addSubview(view)
-            }
-        }else{
-            var local: String = ""
-            switch self.state{
-            case .empty:
-                local = "EmptyView"
-                break
-            case .loading:
-                local = "LoadingView"
-                break
-            case .error:
-                local = "ErrorView"
-                break
-            default:
-                print("Cannot process local custom")
-            }
-            if let view = self.instanceFromNib(name: local, useDefault: true){
-                view.frame = self.bounds
-                self.addSubview(view)
+        var stateView: UIView? = nil
+        if let viewByRef = views[self.state]{
+            stateView = viewByRef
+        }else if let stateViewByName = viewDictionary[self.state]{
+            if let view = self.instanceFromNib(name: stateViewByName){
+                stateView = view
             }
         }
+        if let block = completionBlocks[self.state]{
+            let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
+            stateView!.addGestureRecognizer(tapGesture)
+        }
+        self.addSubview(stateView!)
         self.setNeedsLayout()
         self.setNeedsDisplay()
+    }
+
+    @objc func handleTap(sender: UITapGestureRecognizer){
+        if let block = completionBlocks[self.state]{
+            block()
+        }
+    }
+    
+    // Handle Simple Action Events of Views
+    public func setHandlers(loadingView: CompletionHandler? = nil, errorView: CompletionHandler? = nil, emptyView: CompletionHandler? = nil, customView: CompletionHandler? = nil){
+        // Loading
+        if let loading = loadingView{
+            completionBlocks[ViewState.loading] = loading
+        }
+        // Error
+        if let error = errorView{
+            completionBlocks[ViewState.error] = error
+        }
+        // Empty
+        if let empty = emptyView{
+            completionBlocks[ViewState.empty] = empty
+        }
+        // Custom
+        if let custom = customView{
+            completionBlocks[ViewState.custom] = custom
+        }
     }
 }

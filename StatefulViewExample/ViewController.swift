@@ -17,17 +17,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.segmentSelector.addTarget(self, action: #selector(segmentedControlComparisonChanged), for: .allEvents)
-        self.statefulView.setAvailableViews(loadingView: "LoadingView", errorView: "ErrorView", emptyView: "EmptyView", customView: "MyCustomView")
+        self.statefulView.setAvailableViewsByName(errorView: "ErrorView", emptyView: "EmptyView", customView: "MyCustomView")
+        self.statefulView.setAvailableViews(loadingView: LoadingView.instanceFromNib())
         self.statefulView.setState(state: .empty)
+        self.statefulView.setHandlers(loadingView: { self.statefulView.setState(state: .custom)})
     }
     
-//    override func viewDidLayoutSubviews() {
-//        state = StatefulView(frame: statefulView.frame)
-//        self.view.addSubview(state)
-//        state.setLoadView()
-//        state.setEmptyView()
-//    }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

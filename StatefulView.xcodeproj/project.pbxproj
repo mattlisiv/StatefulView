@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F638AE611FACBC6E00951BC8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F638AE601FACBC6E00951BC8 /* LoadingView.swift */; };
 		F6B8EFB81FABA7DF000B73BA /* StatefulView.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6B8EFAE1FABA7DF000B73BA /* StatefulView.framework */; };
 		F6B8EFBD1FABA7DF000B73BA /* StatefulViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B8EFBC1FABA7DF000B73BA /* StatefulViewTests.swift */; };
 		F6B8EFBF1FABA7DF000B73BA /* StatefulView.h in Headers */ = {isa = PBXBuildFile; fileRef = F6B8EFB11FABA7DF000B73BA /* StatefulView.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -22,9 +23,6 @@
 		F6B8F0051FABCA20000B73BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0041FABCA20000B73BA /* LoadingView.xib */; };
 		F6B8F0071FABDD05000B73BA /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0061FABDD05000B73BA /* ErrorView.xib */; };
 		F6B8F0091FABDD15000B73BA /* MyCustomView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0081FABDD15000B73BA /* MyCustomView.xib */; };
-		F6B8F00F1FABF985000B73BA /* LoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F00E1FABF984000B73BA /* LoadingView.xib */; };
-		F6B8F0111FABFC44000B73BA /* EmptyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0101FABFC44000B73BA /* EmptyView.xib */; };
-		F6B8F0131FABFC4E000B73BA /* ErrorView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F6B8F0121FABFC4E000B73BA /* ErrorView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +57,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		F638AE601FACBC6E00951BC8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		F6B8EFAE1FABA7DF000B73BA /* StatefulView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = StatefulView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6B8EFB11FABA7DF000B73BA /* StatefulView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = StatefulView.h; sourceTree = "<group>"; };
 		F6B8EFB21FABA7DF000B73BA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -83,9 +82,6 @@
 		F6B8F0041FABCA20000B73BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
 		F6B8F0061FABDD05000B73BA /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 		F6B8F0081FABDD15000B73BA /* MyCustomView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyCustomView.xib; sourceTree = "<group>"; };
-		F6B8F00E1FABF984000B73BA /* LoadingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoadingView.xib; sourceTree = "<group>"; };
-		F6B8F0101FABFC44000B73BA /* EmptyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyView.xib; sourceTree = "<group>"; };
-		F6B8F0121FABFC4E000B73BA /* ErrorView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ErrorView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +154,6 @@
 				F6B8EFB11FABA7DF000B73BA /* StatefulView.h */,
 				F6B8EFB21FABA7DF000B73BA /* Info.plist */,
 				F6B8EFC81FABB1B8000B73BA /* StatefulView.swift */,
-				F6B8F00E1FABF984000B73BA /* LoadingView.xib */,
-				F6B8F0101FABFC44000B73BA /* EmptyView.xib */,
-				F6B8F0121FABFC4E000B73BA /* ErrorView.xib */,
 			);
 			path = StatefulView;
 			sourceTree = "<group>";
@@ -187,6 +180,7 @@
 				F6B8F0041FABCA20000B73BA /* LoadingView.xib */,
 				F6B8F0061FABDD05000B73BA /* ErrorView.xib */,
 				F6B8F0081FABDD15000B73BA /* MyCustomView.xib */,
+				F638AE601FACBC6E00951BC8 /* LoadingView.swift */,
 			);
 			path = StatefulViewExample;
 			sourceTree = "<group>";
@@ -375,9 +369,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6B8F0131FABFC4E000B73BA /* ErrorView.xib in Resources */,
-				F6B8F0111FABFC44000B73BA /* EmptyView.xib in Resources */,
-				F6B8F00F1FABF985000B73BA /* LoadingView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -441,6 +432,7 @@
 			files = (
 				F6B8EFD31FABB3C1000B73BA /* ViewController.swift in Sources */,
 				F6B8EFD11FABB3C1000B73BA /* AppDelegate.swift in Sources */,
+				F638AE611FACBC6E00951BC8 /* LoadingView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
