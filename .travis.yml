@@ -11,6 +11,9 @@ env:
     - LANG=en_US.UTF-8
     - PROJECT=StatefulView.xcodeproj
     - IOS_SCHEME="StatefulView"
+    - IOS_SDK=iphonesimulator10.3
+    - TVOS_SDK=appletvsimulator10.2
+    - MACOS_SDK=macosx10.12
 
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 6" SDK="$IOS_SDK" SCHEME="$IOS_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="YES" RUN_UI_TESTS="NO" POD_LINT="YES" CHECK_MARKDOWN="YES"
