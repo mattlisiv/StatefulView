@@ -105,7 +105,10 @@ public class StatefulView: UIView {
             let tapGesture = UITapGestureRecognizer(target: self, action: #selector(handleTap(sender:)))
             stateView!.addGestureRecognizer(tapGesture)
         }
+        stateView?.frame = self.bounds
         self.addSubview(stateView!)
+        stateView?.setNeedsLayout()
+        stateView?.setNeedsDisplay()
         self.setNeedsLayout()
         self.setNeedsDisplay()
     }
