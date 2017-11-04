@@ -16,7 +16,7 @@ When generically loading data, there exists default states:
 3. Error
 
 This library attempts to simplify the transitions among thesese various state by creating a simple UIView that can handle
-the generic states.
+the generic states. It was influenced by [StatefulViewController](https://github.com/aschuch/StatefulViewController), but I found a single UIView was better for my particular use case than a view controller.
 
 ## Getting Started
 
