@@ -15,9 +15,7 @@ env:
     - IOS_SDK=iphonesimulator10.3
     - TVOS_SDK=appletvsimulator10.2
     - MACOS_SDK=macosx10.12
-    - IOS_EXAMPLE_WORKSPACE="Examples/Examples-iOS/IGListKitExamples.xcworkspace"
-    - TVOS_EXAMPLE_WORKSPACE="Examples/Examples-tvOS/IGListKitExamples.xcworkspace"
-    - MACOS_EXAMPLE_WORKSPACE="Examples/Examples-macOS/IGListKitExamples.xcworkspace"
+
 
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 6" SDK="$IOS_SDK" SCHEME="$IOS_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="YES" RUN_UI_TESTS="NO" POD_LINT="NO" CHECK_MARKDOWN="NO"
