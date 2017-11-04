@@ -11,6 +11,7 @@ env:
     - LANG=en_US.UTF-8
     - PROJECT=StatefulView.xcodeproj
     - IOS_SCHEME="StatefulView"
+    - EXAMPLE_SCHEME="StatefulViewExample"
     - IOS_SDK=iphonesimulator10.3
     - TVOS_SDK=appletvsimulator10.2
     - MACOS_SDK=macosx10.12
