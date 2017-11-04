@@ -11,10 +11,13 @@ env:
     - LANG=en_US.UTF-8
     - PROJECT=StatefulView.xcodeproj
     - IOS_SCHEME="StatefulView"
-    - EXAMPLE_SCHEME="StatefulViewExample"
+    - EXAMPLE_SCHEME="StatefulViewExamples"
     - IOS_SDK=iphonesimulator10.3
     - TVOS_SDK=appletvsimulator10.2
     - MACOS_SDK=macosx10.12
+    - IOS_EXAMPLE_WORKSPACE="Examples/Examples-iOS/IGListKitExamples.xcworkspace"
+    - TVOS_EXAMPLE_WORKSPACE="Examples/Examples-tvOS/IGListKitExamples.xcworkspace"
+    - MACOS_EXAMPLE_WORKSPACE="Examples/Examples-macOS/IGListKitExamples.xcworkspace"
 
   matrix:
     - DESTINATION="OS=8.1,name=iPhone 6" SDK="$IOS_SDK" SCHEME="$IOS_SCHEME" RUN_TESTS="NO" BUILD_EXAMPLE="YES" RUN_UI_TESTS="NO" POD_LINT="NO" CHECK_MARKDOWN="NO"
@@ -48,12 +51,4 @@ script:
 
   - if [ $BUILD_EXAMPLE == "YES" ] && [ $SDK == $MACOS_SDK ]; then
         xcodebuild build -workspace "$MACOS_EXAMPLE_WORKSPACE" -scheme "$EXAMPLE_SCHEME" -sdk "$SDK" -destination "$DESTINATION" ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO | bundle exec xcpretty -c;
-    fi
-
-
-  - if [ $RUN_TESTS == "YES" ]; then
-        xcodebuild build build-for-testing -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES | bundle exec xcpretty -c;
-        xcodebuild analyze test-without-building -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES ONLY_ACTIVE_ARCH=YES | bundle exec xcpretty -c;
-    else
-        xcodebuild build analyze -workspace "$WORKSPACE" -scheme "$SCHEME" -sdk "$SDK" -destination "$DESTINATION" -configuration Debug ONLY_ACTIVE_ARCH=NO CODE_SIGNING_REQUIRED=NO | bundle exec xcpretty -c;
     fi
