@@ -1,4 +1,4 @@
-ource 'https://rubygems.org'
+source 'https://rubygems.org'
 
 gem 'cocoapods', '1.3.0'
 gem 'danger', '~> 4.3.0'
